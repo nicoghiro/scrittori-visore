@@ -47,6 +47,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(476, 163);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // grassetto
             // 
@@ -58,6 +59,7 @@
             this.grassetto.TabIndex = 1;
             this.grassetto.Text = "Grassetto";
             this.grassetto.UseVisualStyleBackColor = true;
+            this.grassetto.CheckedChanged += new System.EventHandler(this.grassetto_CheckedChanged);
             // 
             // sottolineato
             // 
@@ -108,6 +110,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Scrivi";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox1
             // 

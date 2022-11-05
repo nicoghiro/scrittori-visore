@@ -11,23 +11,23 @@ namespace scrittori_visore
 {
     public class visualizzatore
     {
-        string testo;
+        
         CheckBox grassetto;
         CheckBox corsivo;
         CheckBox sottolineato;
         ColorDialog colore;
         RichTextBox casella;
-        string utente;
+        
        
 
-        public visualizzatore(string Testo, CheckBox Grassetto, CheckBox Corsivo, CheckBox Sottolineato,ColorDialog Colore,RichTextBox Casella , string Utente)
+        public visualizzatore( CheckBox Grassetto, CheckBox Corsivo, CheckBox Sottolineato,ColorDialog Colore,RichTextBox Casella )
         {
             setCassella(Casella);
             setColore(Colore);
             setCorsivo(Corsivo);
             setGrassetto(Grassetto);
             setSottolineato(Sottolineato);
-            setUtente(Utente); 
+            
            
 
         }
@@ -52,11 +52,8 @@ namespace scrittori_visore
         {
            casella = Casella;
         }
-        public void setUtente(string Utente)
-        {
-            utente = Utente;
-        }
-        public void scrittura()
+        
+        public void scrittura(string testo , string utente)
         {
             Font font;
             FontStyle f;
@@ -78,7 +75,11 @@ namespace scrittori_visore
             //setta il colore
             casella.SelectionColor = colore.Color;
             //aggiunge il testo applicando stile e colore
-            casella.AppendText(utente+testo + "\n");
+            casella.AppendText(utente+": "+testo + "\n");
+        }
+        private void scelta_colore_Click(object sender, EventArgs e)
+        {
+            colore.ShowDialog();
         }
     }
     }
