@@ -12,41 +12,42 @@ namespace scrittori_visore
     public class visualizzatore
     {
         
-        CheckBox grassetto;
-        CheckBox corsivo;
-        CheckBox sottolineato;
-        ColorDialog colore;
+        bool  grassetto;
+        bool corsivo;
+        bool sottolineato;
+        
         RichTextBox casella;
+        Color colori;
         
        
 
-        public visualizzatore( CheckBox Grassetto, CheckBox Corsivo, CheckBox Sottolineato,ColorDialog Colore,RichTextBox Casella )
+        public visualizzatore(RichTextBox Casella )
         {
             setCassella(Casella);
-            setColore(Colore);
-            setCorsivo(Corsivo);
-            setGrassetto(Grassetto);
-            setSottolineato(Sottolineato);
+            setColore(Color.Black);
+            setCorsivo(false);
+            setGrassetto(false);
+            setSottolineato(false);
             
            
 
         }
 
-        public void setGrassetto(CheckBox Grassetto)
+        public void setGrassetto(bool Grassetto)
         {
             grassetto = Grassetto;
         }
-        public void setCorsivo(CheckBox Corsivo)
+        public void setCorsivo(bool Corsivo)
         {
             corsivo = Corsivo;
         }
-        public void setSottolineato(CheckBox Sottolineato)
+        public void setSottolineato(bool Sottolineato)
         {
             sottolineato = Sottolineato;
         }
-        public void setColore(ColorDialog Colore)
+        public void setColore(Color Colore)
         {
-            colore = Colore;
+            colori = Colore;
         }
         public void setCassella(RichTextBox Casella)
         {
@@ -63,23 +64,23 @@ namespace scrittori_visore
             {
                 f = font.Style;
                 //controllo stili selezionati
-                if (grassetto.Checked)
+                if (grassetto==true)
                     f ^= FontStyle.Bold;
-                if (corsivo.Checked)
+                if (corsivo==true)
                     f ^= FontStyle.Italic;
-                if (sottolineato.Checked)
+                if (sottolineato==true)
                     f ^= FontStyle.Underline;
                 //setta lo stile del font
                 casella.SelectionFont = new Font(font, f);
             }
             //setta il colore
-            casella.SelectionColor = colore.Color;
+            casella.SelectionColor = colori;
             //aggiunge il testo applicando stile e colore
             casella.AppendText(utente+": "+testo + "\n");
         }
         private void scelta_colore_Click(object sender, EventArgs e)
         {
-            colore.ShowDialog();
+            
         }
     }
     }
